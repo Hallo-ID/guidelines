@@ -5336,8 +5336,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-info {
-  color: #0c5460;
-  background-color: #d1ecf1;
+  color: #01DEC4;
+  background-color: #01DEC4; !important;
   border-color: #bee5eb;
 }
 

@@ -51,7 +51,7 @@
 
                 <!-- Logo -->
                 <a class="logo ml-md-3" href="index.html" title="HalloID"> <img src="assets/images/halloID-logo.png" alt="HalloID" width="30px"/> </a>
-                <span class="text-5 ml-2">HalloID</span>
+                <span class="text-5 ml-2">Hallo</span><span style="color: #3956FF" class="text-5">ID</span>
                 <span class="text-2 ml-2">v1.0</span>
                 <!-- Logo End -->
 
@@ -100,8 +100,8 @@
             <ul class="nav flex-column ">
                 <li class="nav-item"><a class="nav-link active" href="#idocs_start">Getting Started</a>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link" href="#idocs_installation">HalloID Cloud</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#idocs_installation">Local Setup</a></li>
+<!--                        <li class="nav-item"><a class="nav-link" href="#idocs_installation">HalloID Cloud</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="#local_setup">Local Setup</a></li>
                         <li class="nav-item"><a class="nav-link" href="#idocs_installation">Tenant Onboarding</a></li>
                         <li class="nav-item"><a class="nav-link" href="#idocs_html_structure">Create your first Client</a></li>
                         <li class="nav-item"><a class="nav-link" href="#idocs_sass">Adding security Keys</a></li>
@@ -167,34 +167,84 @@
                 <!-- Getting Started
                 ============================ -->
                 <section id="idocs_start">
-                    <h1>Documentation</h1>
-                    <h2>Your ThemeForest Item Name Here</h2>
-                    <p class="lead">Thank you so much for purchasing our item from themeforest.</p>
+                    <h1>Getting started</h1>
+                    <h2>Welcome to HalloID! This is just the beginning of our very awesome journey <3</h2>
+                    <p class="lead">This page contains all official documentation for HalloID. We strongly recommend to
+                        go through the different topics and use cases in order to get the max benefit and information
+                        to improve your Authentication process. We are actively updating this docs with the latest
+                        releases, if you want to stay tuned,
+                        subscribe to <a href="http://www.harnishdesign.net" target="_blank">our technical blog</a> ;)</p>
                     <hr>
                     <div class="row">
                         <div class="col-sm-6 col-lg-4">
                             <ul class="list-unstyled">
                                 <li><strong>Version:</strong> 1.0</li>
-                                <li><strong>Author:</strong> <a href="http://www.harnishdesign.net" target="_blank">Harnish Design</a></li>
+                                <li><strong>Author:</strong>
+                                    <a href="http://www.harnishdesign.net" target="_blank">HalloID Dev Team</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-6 col-lg-4">
                             <ul class="list-unstyled">
-                                <li><strong class="font-weight-700">Created:</strong> 8 April, 2020</li>
-                                <li><strong>Update:</strong> 12 May, 2020</li>
+                                <li><strong class="font-weight-700">Created:</strong> 19 October, 2022</li>
+                                <li><strong>Update:</strong> 24 Oct, 2022</li>
                             </ul>
                         </div>
                     </div>
-                    <p class="alert alert-info">If you have any questions that are beyond the scope of this help file, Please feel free to email via <a target="_blank" href="https://themeforest.net/user/harnishdesign/#contact?ref=HarnishDesign">Item Support Page</a>.</p>
+                    <p class="alert alert-info">If you have any questions that are beyond the scope of this documents,
+                        Please feel free to email via <a target="_blank" href="https://themeforest.net/user/harnishdesign/#contact?ref=HarnishDesign">HalloID Support Page</a>.</p>
                 </section>
 
                 <hr class="divider">
 
-                <!-- Installation
+                <!-- Local setup
                 ============================ -->
-                <section id="idocs_installation">
-                    <h2>Installation</h2>
-                    <p class="lead">Follow the steps below to setup your site template:</p>
+                <section id="local_setup">
+                    <h2>Local setup</h2>
+                    <p class="lead">Let's configure HalloID in our local environment in just one single step.</p>
+                    What you already need:
+                    <ul>
+                        <li>Docker compose</li>
+                        <li>A computer with any biometric device (FaceID, TouchID, YubiKey)</li>
+                    </ul>
+
+                    Now, create a file with this content and save it as docker-compose.yml:
+
+                    <pre><code class="html">
+                        version: "3.8"
+                        services:
+                            halloid-authenticator:
+                                container_name: halloid-authenticator
+                                image: halloid/halloid-authenticator:v1.0.0
+                                ports:
+                                - "8081:8081"
+
+                            halloid-controller:
+                                container_name: halloid-controller
+                                image: halloid/halloid-controller:v0.0.2
+                                ports:
+                                - "10000:10000"
+
+                            halloid-console:
+                                container_name: halloid-console
+                                image: halloid/halloid-console:v0.0.1
+                                ports:
+                                - "3000:3000"
+                    </code></pre>
+                    Once you have the file ready, only step you need to do is execute the
+                    <code>docker-compose up</code> command. This will deploy a minified version of HalloID in your local
+                    environment, ideal for testing and development. Of course, the version is minified regarding
+                    resources consumption, but you can expect the same features as our HalloID Cloud environment.
+                    Don't worry, we will talk about it later ;)
+
+                    Once 3 the containers are running, let's open the HalloID Console in<a href="http://localhost:3000">
+                    localhost:3000</a>. The first screen you will see will be the Tenant setup:
+                    <a class="popup-img" href="assets/images/create-tenant.png">
+                        <img  class="img-fluid" src="assets/images/create-tenant.png">
+                    </a>
+
+
+                    
+
                     <ol>
                         <li>Unzip the downloaded package and open the <strong>/HTML</strong> folder to find all the template files. You will need to upload these files to your hosting web server using FTP or localhost in order to use it on your website.</li>
                         <li>Below is the folder structure and needs to be uploaded to your website or localhost root directory:
