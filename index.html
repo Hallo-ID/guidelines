@@ -102,10 +102,10 @@
                     <ul class="nav flex-column">
 <!--                        <li class="nav-item"><a class="nav-link" href="#idocs_installation">HalloID Cloud</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="#local_setup">Local Setup</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#idocs_installation">Tenant Onboarding</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#idocs_html_structure">Create your first Client</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#idocs_sass">Adding security Keys</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#idocs_color_schemes">Web App Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tenant_onboarding">Tenant Onboarding</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#create_client">Create your first Client</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#security_keys">Adding security Keys</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#web_app_login">Web App Login</a></li>
                     </ul>
                 </li>
 <!--                <li class="nav-item"><a class="nav-link" href="#idocs_start">Use Cases</a>-->
@@ -200,7 +200,7 @@
                 ============================ -->
                 <section id="local_setup">
                     <h2>Local setup</h2>
-                    <p class="lead">Let's configure HalloID in our local environment in just one single step.</p>
+                    <p class="lead">Let's deploy HalloID in our local environment in just one single step.</p>
                     What you already need:
                     <ul>
                         <li>Docker compose</li>
@@ -212,203 +212,224 @@
                     <pre><code class="html">
                         version: "3.8"
                         services:
-                            halloid-authenticator:
-                                container_name: halloid-authenticator
-                                image: halloid/halloid-authenticator:v1.0.0
-                                ports:
-                                - "8081:8081"
+                          halloid-authenticator:
+                            container_name: halloid-authenticator
+                            image: halloid/halloid-authenticator:v1.0.0
+                            pull_policy: always
+                            ports:
+                              - "8081:8081"
 
-                            halloid-controller:
-                                container_name: halloid-controller
-                                image: halloid/halloid-controller:v0.0.2
-                                ports:
-                                - "10000:10000"
+                          halloid-controller:
+                            container_name: halloid-controller
+                            image: halloid/halloid-controller:v0.0.2
+                            pull_policy: always
+                            ports:
+                              - "10000:10000"
 
-                            halloid-console:
-                                container_name: halloid-console
-                                image: halloid/halloid-console:v0.0.1
-                                ports:
-                                - "3000:3000"
+                          halloid-console:
+                            container_name: halloid-console
+                            image: halloid/halloid-console:v0.0.1
+                            pull_policy: always
+                            ports:
+                              - "3000:80"
                     </code></pre>
                     Once you have the file ready, only step you need to do is execute the
                     <code>docker-compose up</code> command. This will deploy a minified version of HalloID in your local
                     environment, ideal for testing and development. Of course, the version is minified regarding
-                    resources consumption, but you can expect the same features as our HalloID Cloud environment.
-                    Don't worry, we will talk about it later ;)
+                    resources consumption, but you can expect the same features as our production environment.
 
                     Once 3 the containers are running, let's open the HalloID Console in<a href="http://localhost:3000">
-                    localhost:3000</a>. The first screen you will see will be the Tenant setup:
-                    <a class="popup-img" href="assets/images/create-tenant.png">
-                        <img  class="img-fluid" src="assets/images/create-tenant.png">
-                    </a>
+                    localhost:3000</a>. The first screen you will see will be the Tenant setup, let's start configuring
+                    our new account..
 
 
-                    
-
-                    <ol>
-                        <li>Unzip the downloaded package and open the <strong>/HTML</strong> folder to find all the template files. You will need to upload these files to your hosting web server using FTP or localhost in order to use it on your website.</li>
-                        <li>Below is the folder structure and needs to be uploaded to your website or localhost root directory:
-                            <ul>
-                                <li><code>HTML/assets</code> - Contains all of the assets referenced
-                                    <ul>
-                                        <li><code>HTML/css</code> - Stylesheet files</li>
-                                        <li><code>HTML/images</code> - Images files</li>
-                                        <li><code>HTML/js</code> - Javacript files</li>
-                                        <li><code>HTML/sass</code> - Sass files</li>
-                                        <li><code>HTML/vendor</code> – All external libs.</li>
-                                    </ul>
-                                </li>
-                                <li><code>HTML/index.html</code> - Homepage
-                            </ul>
-                        </li>
-                        <li>You should upload all or specific HTML files as per your need.</li>
-                        <li>You are good to go for adding your content now!</li>
-                    </ol>
                 </section>
 
                 <hr class="divider">
 
                 <!-- HTML Structure
                 ============================ -->
-                <section id="idocs_html_structure">
-                    <h2>HTML Structure</h2>
-                    <p>iDocs follows a simple and easy to customize coding structure. Here is the sample for your reference:<br>
-                        The template is based on <a class="ml-1" target="_blank" href="https://getbootstrap.com/"><i class="fas fa-external-link-alt"></i> Bootstrap Framework</a></p>
-                    <pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
+                <section id="tenant_onboarding">
+                    <h2>Tenant onboarding</h2>
+                    <p>A tenant is the owner of a HalloID account. As owner, you have administrator privileges over the
+                    clients registered, authenticated users and access keys. To start using your account, first you need
+                        to add a name and domain for your tenant:</p>
 
-&lt;!-- Your Title, Description, Stylesheets
-============================================= --&gt;
+                    <a class="popup-img" href="assets/images/tutorial/create-tenant.png">
+                        <img  class="img-fluid" src="assets/images/tutorial/create-tenant.png">
+                    </a>
 
-&lt;/head&gt;
+                    <ol>
+                        <li><b>Tenant Name:</b> Normally the company name, but could be whatever name to help you identify this
+                        account independent of other ones. Example: My Awesome Company</li>
+                        <li>
+                            <b>Domain:</b> This parameter will be used to configure HalloID to create a custom
+                            subdomain, so login request from unknown domains are not allowed. Example: If your company
+                            domain is <code>my-awesome-company.com</code>, your subdomain will be
+                            <code>my-awesome-company.halloid.io</code></li>
+                    </ol>
 
-&lt;body data-spy=&quot;scroll&quot; data-target=&quot;.idocs-navigation&quot; data-offset=&quot;125&quot;&gt;
+                    <p class="alert alert-info"><i class="fa-thin fa-lightbulb"></i> Keep in mind: For the local
+                        environment, the domain will always be localhost</p>
 
-&lt;!-- Document Wrapper
-=============================== --&gt;
-&lt;div id=&quot;main-wrapper&quot;&gt;
 
-  &lt;!-- Header
-  ============================ --&gt;
-  &lt;header id=&quot;header&quot; class=&quot;sticky-top&quot;&gt;
-   ......
-  &lt;/header&gt;
-  &lt;!-- Header End --&gt;
+                    <p>Once your tenant is configured, you will have access to the HalloID dashboard.</p>
 
-  &lt;!-- Content
-  ============================ --&gt;
-  &lt;div id=&quot;content&quot; role=&quot;main&quot;&gt;
-
-    &lt;!-- Sidebar Navigation
-    ============================ --&gt;
-    &lt;div class=&quot;idocs-navigation bg-light&quot;&gt;
-     .....
-    &lt;/div&gt;
-
-    &lt;!-- Docs Content
-    ============================ --&gt;
-    &lt;div class=&quot;idocs-content&quot;&gt;
-      &lt;div class=&quot;container&quot;&gt;
-        .......
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;!-- Content end --&gt;
-
-  &lt;!-- Footer --&gt;
-  &lt;footer id=&quot;footer&quot; class=&quot;section bg-dark footer-text-light&quot;&gt;
-    &lt;div class=&quot;container&quot;&gt; ...... &lt;/div&gt;
-  &lt;/footer&gt;
-  &lt;!-- Footer end --&gt;
-
-&lt;/div&gt;
-&lt;!-- Document Wrapper end --&gt;
-
-&lt;!-- JavaScript --&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                    <p class="alert alert-info">If you need more information, please visit bootstrap site: <a target="_blank" href="https://getbootstrap.com/docs/4.4/layout/grid/">https://getbootstrap.com</a></p>
                 </section>
 
                 <hr class="divider">
 
                 <!-- Sass
                 ============================ -->
-                <section id="idocs_sass">
-                    <h2>Sass</h2>
-                    <p>We have added SASS <code>.scss</code> files in template. If you know how to use SASS you can change sass files and compile the css as well.
-                        You can find sass file here - <code>HTML/assets/sass</code></p>
-                    <p>Open the <code>sass/_variables.scss</code> and Edit the values according to your needs. If you need more Advanced Setup then you can Edit the Respective Files yourself which have been branched inside the same Folder. It is completely at your discretion only to include the Required <code>.scss</code> Files you need to minimize the amount of CSS & including only the Styles of the Blocks you need. This can be setup in your <code>stylesheet.scss</code> File.</p>
+                <section id="create_client">
+                    <h2>Create your first client</h2>
+                    <p>A client is any application you want to attach to your HalloID account. The tenant defines the
+                    domain where your clients will connect, this custom domain should be use for all your clients in
+                    order to make requests to HalloID. As you may see, there are no registered clients yet, let's start
+                    adding a new one:</p>
+
+                    <a class="popup-img" href="assets/images/tutorial/client-dashboard.png">
+                        <img  class="img-fluid" src="assets/images/tutorial/client-dashboard.png">
+                    </a>
+
+                    <p>Click on Add Client. Let's now start configuring our client:</p>
+                    <a class="popup-img" href="assets/images/tutorial/register-client.png">
+                        <img  class="img-fluid" src="assets/images/tutorial/register-client.png">
+                    </a>
+
+                    <p>The register client form has 3 parameters:</p>
+                    <ol>
+                        <li><b>Client Name:</b> The name for the application connecting with this client. Example:
+                            <code>delivery-app</code>
+                        </li>
+                        <li><b>Description:</b> A quick description about the usage of this client and what represents
+                            in your HalloID account. Example: Client to authenticate delivery app users in production
+                            env.
+                        </li>
+                    </ol>
+
+                    <p>The next parameter is very important and we have and entire topic about it ;)</p>
+
                 </section>
 
                 <hr class="divider">
 
-                <!-- Color Schemes
+                <!-- Security keys
                 ============================ -->
-                <section id="idocs_color_schemes">
-                    <h2>Color Schemes</h2>
-                    <p>You can change your Website's Color Scheme in an instant. We have build <strong>10 Color</strong> css file for change template primary color.</p>
-                    <ul>
-                        <li><code>color-blue.css</code> - Blue Color</li>
-                        <li><code>color-brown.css</code> - Brown Color</li>
-                        <li><code>color-cyan.css</code> - Cyan Color</li>
-                        <li><code>color-green.css</code> - Green Color</li>
-                        <li><code>color-orange.css</code> - Orange Color</li>
-                        <li><code>color-indigo.css</code> - Indigo Color</li>
-                        <li><code>color-purple.css</code> - Purple Color</li>
-                        <li><code>color-red.css</code> - Red Color</li>
-                        <li><code>color-teal.css</code> - Teal Color</li>
-                        <li><code>color-yellow.css</code> - Yellow Color</li>
-                    </ul>
-                    <p>Simply add Color CSS file link it in the Document <code>&lt;head&gt;</code>.<br>
-                        Make sure you add the <code>css/color-blue.css</code> stylesheet in your head after the <code>css/stylesheet.css</code> file linking from above mentioned 10 color css file.</p>
-                    <p><strong>For Example:</strong></p>
-                    <pre><code class="html">&lt;head&gt;
-&lt;!-- Stylesheet
-============================== --&gt;
-&lt;!-- Bootstrap --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/vendor/bootstrap/css/bootstrap.min.css&quot; /&gt;
-&lt;!-- Font Awesome Icon --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/vendor/font-awesome/css/all.min.css&quot; /&gt;
-&lt;!-- Magnific Popup --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/vendor/magnific-popup/magnific-popup.min.css&quot; /&gt;
-&lt;!-- Highlight Syntax --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/vendor/highlight.js/styles/github.css&quot; /&gt;
-&lt;!-- Custom Stylesheet --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/stylesheet.css&quot; /&gt;
+                <section id="security_keys">
+                    <h2>Security keys</h2>
+                    <p>In this section let's talk about how security keys works in HalloID.</p>
 
-&lt;!-- Here goes your Colors Css --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/color-orange.css&quot; /&gt;
-&lt;/head&gt;</code></pre>
+                    <h3>Why security keys?</h3>
+                    <p>With security keys we make sure the request made by your client comes from you and not from a third
+                    party service (such a hacker or phishing software) using the service token. On the other side, you
+                        also make sure all information send from HalloID (such Authorization tokens) really comes from
+                        our platform.</p>
+
+                    <p>As you may know, security keys are generated in pairs: A public key, and a private key. The
+                        public key is meant to be shared with other services, while the private key shall remain in
+                        your application backend, stored in your server or even better in a Vault. For example, every
+                        time you perform a request to HalloID, your need to attach a service token in the header signed
+                        with your private key. In that way, HalloID stores your public key, and we will use it in order
+                        to validate the token signature: If the service token is indeed signed with your private key,
+                        the only key can verify it is the public key. If validation is not successful, then the request
+                        is denied. Same way, HalloID shares his public key in order to let our clients verify all
+                        authentication tokens are signed by our platform, at this way we prevent undesired interventions
+                        in the Authentication process.
+                    </p>
+
+                    <p>HalloID gives you 2 options in order to store your key pais:</p>
+                    <p>If you select the first option, HalloID will generate a key pair for you</p>
+                    <a class="popup-img" href="assets/images/tutorial/client-with-private-key.png">
+                        <img  class="img-fluid" src="assets/images/tutorial/client-with-private-key.png">
+                    </a>
+
+                    <p>Please pay attention to the message in the bottom: HalloID will only save the generated public
+                        key, you will see the private key only once, so please, save it in a safe place.
+                    </p>
+
+                    <p>
+                        The second options is to generate your key pais by your own and provide the public key to be
+                        stored by HalloID:
+                    </p>
+                    <a class="popup-img" href="assets/images/tutorial/client-with-public-key.png">
+                        <img  class="img-fluid" src="assets/images/tutorial/client-with-public-key.png">
+                    </a>
+
+                    <p>Once your paste your public key, you will see the success message followed by the client details:
+                    </p>
+                    <a class="popup-img" href="assets/images/tutorial/client-with-public-key-success.png">
+                        <img  class="img-fluid" src="assets/images/tutorial/client-with-public-key-success.png">
+                    </a>
+
+                    <p>
+                        Now, you are able to access your client details in the HalloID dashboard:
+                    </p>
+                    <a class="popup-img" href="assets/images/tutorial/dashboard-with-clients.png">
+                        <img  class="img-fluid" src="assets/images/tutorial/dashboard-with-clients.png">
+                    </a>
+                    <p>
+                        And that's all configuration you need to start using HalloID to authenticate your users. In the
+                        next section, let's explore how to configure a web application to make login via HalloID.
+                    </p>
+
                 </section>
 
                 <hr class="divider">
 
-                <!-- Customization
+                <!-- Web App Login
                 ============================ -->
-                <section id="idocs_theme_customization">
-                    <h2>Theme Customization</h2>
-                    <p>We have include a Custom CSS File in the <code>css</code> Folder so that you can better handle your Customizations for New Styles or
-                        Overwriting Default Theme Styles. Simply add all your Custom CSS Codes in the <code>css/custom.css</code> File and link it in the Document <code>&lt;head&gt;</code> after the <code>css/stylesheet.css</code> Linking. Also make sure that this is the Last Linked CSS File in the Document <code>&lt;head&gt;</code> so that your Custom CSS Styles are Overwritten properly.</p>
-                    <pre><code class="html">&lt;head&gt;
-&lt;!-- Stylesheet
-============================== --&gt;
-&lt;!-- Bootstrap --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/vendor/bootstrap/css/bootstrap.min.css&quot; /&gt;
-&lt;!-- Font Awesome Icon --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/vendor/font-awesome/css/all.min.css&quot; /&gt;
-&lt;!-- Magnific Popup --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/vendor/magnific-popup/magnific-popup.min.css&quot; /&gt;
-&lt;!-- Highlight Syntax --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/vendor/highlight.js/styles/github.css&quot; /&gt;
-&lt;!-- Custom Stylesheet --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/stylesheet.css&quot; /&gt;
+                <section id="web_app_login">
+                    <h2>Web App Login</h2>
+                    <p>
+                        You can integrate your web application with HalloID using our
+                        <a href="https://www.npmjs.com/package/halloid-web-sdk">Web SDK</a>. To install, just execute
+                        the following command: <code>npm -i halloid-web-sdk</code>
+                    </p>
 
-&lt;!-- Here goes your custom.css
-============================================= --&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/custom.css&quot; /&gt;
-&lt;/head&gt;</code></pre>
+                    <p>
+                        Once installed, you need to configure your client URL and client ID with the values generated
+                        in the HalloID console (see <a href="#create_client">previous steps</a>)
+                    </p>
+
+                    <pre><code class="html">
+                        import HalloIDWebSDK from "halloid-web-sdk";
+
+                        halloClient: HalloIDWebSDK
+
+                        // ...Class code
+
+                        constructor() {
+                          this.halloClient = new HalloIDWebSDK("CLIENT_URL", "CLIENT_ID");
+                        }
+                    </code></pre>
+
+                    <p>And now only thing you need is start using the register/login methods:</p>
+                    <pre><code class="html">
+                        myUserRegistrationFunction(username: string) {
+                            await this.halloClient.registerUser(username, "SERVICE_TOKEN").then(response => {
+                                console.log(response) // Returns the signed JWT token
+                              }).catch(reason => {
+                                console.log(reason)
+                              });
+                        }
+
+                        myUserLoginFunction(username: string) {
+                            await this.halloClient.login(username, "SERVICE_TOKEN").then(response => {
+                                console.log(response) // Returns the signed JWT token
+                              }).catch(reason => {
+                                console.log(reason)
+                              });
+                        }
+                    </code></pre>
+
+                    <h4>The service token</h4>
+                    <p>
+                        You must generate service tokens using your private key. We strongly recommend to use a backend
+                        service for this operation, HalloID also provides a <a href="#java_sdk">Java SDK</a> to help you
+                        generating and signing the service tokens.
+                    </p>
+
                 </section>
 
                 <hr class="divider">
