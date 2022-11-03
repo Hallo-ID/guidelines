@@ -123,17 +123,18 @@
 <!--                        <li class="nav-item"><a class="nav-link" href="#idocs_installation">iOS SDK</a></li>-->
 <!--                    </ul>-->
 <!--                </li>-->
-                <li class="nav-item"><a class="nav-link" href="#idocs_layout">Use Cases</a>
+                <li class="nav-item"><a class="nav-link" href="#use_cases">Use Cases</a>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link" href="#idocs_header">User Authentication</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#idocs_navbar">Transaction Validation</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#idocs_sidebar">Anonymous Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#user_authentication">Login to webapp</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#transaction_validation">Transaction Validation</a></li>
+<!--                        <li class="nav-item"><a class="nav-link" href="#idocs_sidebar">Anonymous Login</a></li>-->
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#idocs_content">Software Development Kit</a>
+                <li class="nav-item"><a class="nav-link" href="#sdk">Software Development Kit</a>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link" href="#idocs_code">Node SDK</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#idocs_table">Java SDK</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#sdk_js">Web JS SDK</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#sdk_java">Server Java SDK</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#sdk_node">Server Node SDK</a></li>
                         <li class="nav-item"><a class="nav-link" href="#idocs_icons">Android SDK</a></li>
                         <li class="nav-item"><a class="nav-link" href="#idocs_image">iOS SDK</a></li>
                     </ul>
@@ -191,7 +192,7 @@
                         </div>
                     </div>
                     <p class="alert alert-info">If you have any questions that are beyond the scope of this documents,
-                        Please feel free to email via <a target="_blank" href="https://themeforest.net/user/harnishdesign/#contact?ref=HarnishDesign">HalloID Support Page</a>.</p>
+                        Please feel free to email via<a target="_blank" href="https://themeforest.net/user/harnishdesign/#contact?ref=HarnishDesign">HalloID Support Page</a>.</p>
                 </section>
 
                 <hr class="divider">
@@ -384,7 +385,7 @@
                     <p>
                         You can integrate your web application with HalloID using our
                         <a href="https://www.npmjs.com/package/halloid-web-sdk">Web SDK</a>. To install, just execute
-                        the following command: <code>npm -i halloid-web-sdk</code>
+                        the following command: <code>npm i halloid-web-sdk</code>
                     </p>
 
                     <p>
@@ -430,272 +431,278 @@
                         generating and signing the service tokens.
                     </p>
 
+                    <p class="alert alert-info"><i class="fa-thin fa-lightbulb"></i> You will find more detailed
+                    information about login in the <a href="#use_cases">use cases</a> section :)</p>
+
                 </section>
-
-                <hr class="divider">
-
-                <!-- Logo Settings
-                ============================ -->
-                <section id="idocs_logo_settings">
-                    <h2>Logo Settings</h2>
-                    <p>The Logo Container can be found in the Header Container - <code>&lt;header&gt;</code></p>
-                    <pre><code class="html">&lt;!-- Logo --&gt;
-&lt;a class=&quot;logo ml-3 ml-md-0&quot; href=&quot;index.html&quot; title=&quot;iDocs&quot;&gt;
-   &lt;img src=&quot;images/logo-light.png&quot; alt=&quot;iDocs&quot;/&gt;
-&lt;/a&gt;
-&lt;!-- Logo End --&gt;
-</code></pre>
-                </section>
-
 
                 <hr class="divider">
 
                 <!-- Layout
                 ============================ -->
-                <section id="idocs_layout">
-                    <h2>Layout</h2>
-                    <p class="lead mb-5">Documentation and examples for header, navbar, sidebar, footer</p>
+                <section id="use_cases">
+                    <h2>Use cases</h2>
+                    <p class="lead mb-5">HalloID covers the basic use cases for user authentication. We will add
+                    more features in our next releases, so this section is updated very often :D</p>
                 </section>
 
 
                 <!-- Header
                 ============================ -->
-                <section id="idocs_header">
-                    <h2>Header</h2>
-                    <p>The list of various header types & its descriptions are provided below for your reference:</p>
+                <section id="user_authentication">
+                    <h2>Login to Web Application</h2>
+                    <p>The main use case to start with HalloID is allowing your users to login without any passwords.
+                        Our mission is clear: We want to provide the best and simple experience configuring a safe
+                        passwordless login method in your web application, without breaking any internal process you
+                        have. To start, HalloID defines 3 main components:
 
-                    <h4>Light</h4>
-                    <p>Header with white background Color & Dark text. <span class="text-info">See below image and code for more information.</span></p>
-                    <p><a class="popup-img" href="assets/images/header-light.jpg"><img class="img-fluid border" src="assets/images/header-light.jpg" alt=""></a></p>
-                    <pre><code class="html">&lt;!-- Header
-============================ --&gt;
-&lt;header id=&quot;header&quot; class=&quot;sticky-top&quot;&gt;
-  &lt;!-- Navbar --&gt;
-  &lt;nav class=&quot;primary-menu navbar navbar-expand-lg&quot;&gt;
-    &lt;div class=&quot;container-fluid&quot;&gt;
-      .....
-    &lt;/div&gt;
-  &lt;/nav&gt;
-  &lt;!-- Navbar End --&gt;
-&lt;/header&gt;
-&lt;!-- Header End --&gt;
-</code></pre>
+                    </p>
 
-                    <h4>Dark</h4>
-                    <p>Header with dark background & Light text. <span class="text-info">See below image and code for more information.</span></p>
-                    <p><a class="popup-img" href="assets/images/header-dark.jpg"><img class="img-fluid border" src="assets/images/header-dark.jpg" alt=""></a></p>
-                    <p>Add the <code>.bg-dark</code> and <code>.navbar-text-light</code> Class to the <code>&lt;nav&gt;</code> Tag to display a Dark Header.</p>
-                    <pre><code class="html">&lt;!-- Header
-============================ --&gt;
-&lt;header id=&quot;header&quot; class=&quot;sticky-top&quot;&gt;
-  &lt;!-- Navbar --&gt;
-  &lt;nav class=&quot;primary-menu navbar navbar-expand-lg bg-dark navbar-text-light&quot;&gt;
-    &lt;div class=&quot;container-fluid&quot;&gt;
-      .....
-    &lt;/div&gt;
-  &lt;/nav&gt;
-  &lt;!-- Navbar End --&gt;
-&lt;/header&gt;
-&lt;!-- Header End --&gt;
-</code></pre>
+                    <ul>
+                        <li>Account created and configured in HalloID platform (Client params, key pair)</li>
+                        <li>HalloID Web SDK</li>
+                        <li>HalloID Backend SDK (optional, but recommended)</li>
+                    </ul>
+
+                    <p>Let's start!</p>
+
+                    <h4>Configuring the Web Application</h4>
+                    <p>
+                        Once you have a configured HalloID client, is time to start with the SDK configuration. The
+                        HalloID Web SDK will perform all requests to HalloID, even web or on premise installation. For
+                        this purpose, in your web application, just need to configure the SDK as follows:
+                    </p>
+                    <p>First, you must run <code>npm install halloid-web-sdk</code> in your web project.</p>
+                    <p>Then, in your project code:</p>
+
+                    <pre><code class="html">
+                        // Import the HalloID Web SDK
+                        import HalloIDWebSDK from "halloid-web-sdk";
+
+                        .
+                        .
+                        .
+
+                        // Init the SDK with the required params
+                        halloClient: HalloIDWebSDK
+
+                        // Class code
+                            constructor() {
+                              this.halloIDClient = new HalloIDWebSDK("TENANT_URL", "CLIENT_ID");
+                            }
+                    </code></pre>
+
+                    <p>
+                        If you need specific details about the HalloID Web SDK, we have an entire section with all details
+                        in the <a href="#sdk_info">Software Development Kit</a> section.
+
+                        Now, let's implement <code>login()</code> and <code>registerUser()</code> methods:
+                    </p>
+
+                    <pre><code class="html">
+                        await this.halloClient.registerUser("username", "SERVICE_TOKEN").then(response => {
+                            console.log(response) //Returns the signed JWT token
+                          }).catch(reason => {
+                            console.log(reason)
+                          });
+
+                        await this.halloClient.login("username", "SERVICE_TOKEN").then(response => {
+                            console.log(response) //Returns the signed JWT token
+                          }).catch(reason => {
+                            console.log(reason)
+                          });
+                    </code></pre>
+
+
+                    <h5>The Service token</h5>
+                    <p>
+                        HalloID use the service token to validate if the request was made for a valid client registered
+                        by you. This process is very simple:
+                    </p>
+                    <ol>
+                        <li>In the <a href="#tenant_onboarding">onboarding process</a>, you generated a RSA key pais in
+                            HalloID, or generated a key pair by yourself and uploaded the public key to HalloID</li>
+                        <li>Using the private key, you must generate a JWT used as service token signed with your
+                        private key</li>
+                        <li>This token is sent as header via HalloID SDK (you don't need to worry about this)</li>
+                        <li>For each request, HalloID will validate the JWT signature using the public key you
+                            generated/uplodaded in the onboarding process.</li>
+                    </ol>
+
+                    <p>
+                        Since web applications are client side applications, we don't recommend to store sensitive
+                        information in the web app code, such the private key. Of course, this will depend a lot on
+                        your current implementation, but our recommendation is to have a server side application able
+                        to generate and sign JWT for you.
+
+                        To make this process simple, HalloID provides also a backend SDK.
+                    </p>
+
+
+                    <h4>Server side implementation</h4>
+                    <p>
+                        We will use our <a href="#java_sdk">Java SDK</a> to generate and validate the JWT.
+                    </p>
+                    <p>First, you must include <code>implementation files('lib/halloid-java-sdk-1.0-SNAPSHOT-all.jar')
+                    </code> in your project (we are using Gradle for this example).</p>
+
+                    <p>Then, in your application.yml:</p>
+
+                    <pre><code class="html">
+                        halloId:
+                          client:
+                            id: YOUR CLIENT ID
+                            privateKey: |
+                              -----BEGIN PRIVATE KEY-----
+                              YOUR PRIVATE KEY
+                              -----END PRIVATE KEY-----
+
+                          publicKey: |
+                            -----BEGIN PUBLIC KEY-----
+                            HALLOID PUBLIC KEY
+                            -----END PUBLIC KEY-----
+                    </code></pre>
+
+                    <p>
+                        We recommend to use a vault service to store this information in non-local environments, then
+                        inject them via environment variables. What we have here is:
+                    </p>
+                    <ul>
+                        <li><code>halloid.client.id</code>: Generated ClientID</li>
+                        <li><code>halloid.client.privateKey</code>: Your private Key</li>
+                        <li><code>halloid.publicKey</code>: HalloID public key</li>
+                    </ul>
+
+                    <p>
+                        Once the parameters are configured, just initialize the <code>HalloIDJavaSDK</code> and call
+                        the <code>generateServiceToken()</code> method:
+                    </p>
+
+                    <pre>
+                        <code class="html">
+                            @Service
+                            public class TokenService {
+
+                                private final HalloIDJavaSDK halloIDJavaSDK;
+
+                                public TokenService(@Value("${halloId.client.id}") String clientID,
+                                                    @Value("${halloId.client.privateKey}") String privateKey,
+                                                    @Value("${halloId.publicKey}") String halloIdPublicKey) {
+                                    this.halloIDJavaSDK = new HalloIDJavaSDK(clientID, privateKey, halloIdPublicKey);
+                                }
+
+                                public String generateToken(){
+                                    return halloIDJavaSDK.generateServiceToken();
+                                }
+                            }
+                        </code>
+                    </pre>
+
+                    <p>
+                        Now, just expose the method to be consumed by your Web client. You can now generate service
+                        tokens for each request.
+                    </p>
+
+                    <pre>
+                        <code class="html">
+                            // Example for web app
+                            public async registerWithHalloID() {
+                                await this.generateServiceToken()
+                                  .then(serviceToken => {
+                                    return this.halloClient.registerUser(this.username, serviceToken)
+                                  })
+                                  .then(response => {
+                                    this.processResponse(response.authorizationToken)
+                                  });
+                              }
+                        </code>
+                    </pre>
+
+                    <p>
+                        Now, your users are able to make request safely to HalloID and perform passwordless login!
+                        If the login is successful, HalloID will generate a JWT with login details and signed with
+                        <b>HalloID Private Key</b>. From your side, we recommend to validate this token was generated
+                        by HalloID. The Java SDK also offers the <code>validateToken()</code> method:
+                    </p>
+
+                    <pre>
+                        <code class="html">
+                            public AuthenticationResponse validateToken(String token) {
+                                return this.halloIDJavaSDK.validateJWT(token);
+                            }
+                        </code>
+                    </pre>
+
+                    <p>This method uses the configured HalloID Public Key to validate JWT signature. Now you can
+                        continue with your Authorization process, the user is valid now ;)</p>
+
+                    <h4>Code Examples:</h4>
+                    <p>
+                        We have available 2 projects to show you how to implement a passwordless login using HalloID.
+                    </p>
+                    <ul>
+                        <li><a>Web client</a></li>
+                        <li><a>Backend client</a></li>
+                    </ul>
+
                 </section>
 
                 <hr class="divider">
 
                 <!-- Navbar
                 ============================ -->
-                <section id="idocs_navbar">
-                    <h2>Navbar</h2>
-                    <p class="lead">Documentation and examples for powerful responsive navigation header</p>
-                    <h4 class="mt-5">Left align</h4>
-                    <p>Header with Navigation alligned Left. <span class="text-info">See below image and code for more information.</span></p>
-                    <p><a class="popup-img" href="assets/images/navbar-left.jpg"><img class="img-fluid border" src="assets/images/navbar-left.jpg" alt=""></a></p>
-                    <p>Add the <code>.justify-content-left</code> class to the element of collapse to display a align left navbar.</p>
-                    <pre><code class="html">&lt;div id=&quot;header-nav&quot; class=&quot;collapse navbar-collapse justify-content-start&quot;&gt;
-  &lt;ul class=&quot;navbar-nav&quot;&gt;
-    .......
-  &lt;/ul&gt;
-&lt;/div&gt;
-</code></pre>
+                <section id="transaction_validation">
+                    <h2>Transaction Validation</h2>
+                    <p>This feature is part of the next release of HalloID <code>v1.1.0</code></p>
 
-                    <h4 class="mt-5">Right align</h4>
-                    <p>Header with Navigation alligned Right. <span class="text-info">See below image and code for more information.</span></p>
-                    <p><a class="popup-img" href="assets/images/navbar-right.jpg"><img class="img-fluid border" src="assets/images/navbar-left.jpg" alt=""></a></p>
-                    <p>Add the <code>.justify-content-end</code> class to the element of collapse to display a align right navbar.</p>
-                    <pre><code class="html">&lt;div id=&quot;header-nav&quot; class=&quot;collapse navbar-collapse justify-content-end&quot;&gt;
-  &lt;ul class=&quot;navbar-nav&quot;&gt;
-    .......
-  &lt;/ul&gt;
-&lt;/div&gt;
-</code></pre>
+                    <a class="popup-img" href="assets/images/icons/work-in-progress.png">
+                        <img  class="img-fluid" src="assets/images/icons/work-in-progress.png">
+                    </a>
 
-                    <h4 class="mt-5">Center Align</h4>
-                    <p>Header with Navigation alligned Center. <span class="text-info">See below image and code for more information.</span></p>
-                    <p><img class="img-fluid border" src="assets/images/navbar-center.jpg" alt=""></p>
-                    <p>Add the <code>.justify-content-center</code> class to the element of collapse to display a align center navbar.</p>
-                    <pre><code class="html">&lt;div id=&quot;header-nav&quot; class=&quot;collapse navbar-collapse justify-content-center&quot;&gt;
-  &lt;ul class=&quot;navbar-nav&quot;&gt;
-    .......
-  &lt;/ul&gt;
-&lt;/div&gt;
-</code></pre>
                 </section>
 
                 <hr class="divider">
 
-                <!-- Sidebar
+                <!-- SDK
                 ============================ -->
-                <section id="idocs_sidebar">
-                    <h2>Sidebar</h2>
+                <section id="sdk">
+                    <h2>Software Development Kit</h2>
                     <p class="lead">We have built fixed sidebar navigation with <a target="_blank" href="https://getbootstrap.com/docs/4.4/components/scrollspy/">bootstrap scrollspy</a> function for docs layout. which is automatically update navigation based on scroll position to indicate which link is currently active in the viewport.</p>
                     <p>The example below sidebar vertical navigation with bootstrap <a target="_blank" href="https://getbootstrap.com/docs/4.4/components/navs/">navs</a> and <a target="_blank" href="https://getbootstrap.com/docs/4.4/components/scrollspy/">scrollspy</a> components and section of docs content.</p>
-                    <pre class="pre-scrollable"><code class="html">&lt;!-- Sidebar Navigation
-============================ --&gt;
-&lt;div class=&quot;idocs-navigation bg-light&quot;&gt;
-  &lt;ul class=&quot;nav flex-column &quot;&gt;
-    &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; href=&quot;#item_1&quot;&gt;Item 1&lt;/a&gt;
-      &lt;ul class=&quot;nav flex-column&quot;&gt;
-        &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#item_1_1&quot;&gt;Sub Item 1.1&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#item_1_2&quot;&gt;Sub Item 1.2&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#item_2&quot;&gt;Item 2&lt;/a&gt;
-      &lt;ul class=&quot;nav flex-column&quot;&gt;
-        &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#item_2_1&quot;&gt;Sub Item 2.1&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#item_2_2&quot;&gt;Sub Item 2.2&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#item_3&quot;&gt;Item 3&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#item_4&quot;&gt;Item 4&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;
 
-&lt;!-- Docs Content
-============================ --&gt;
-&lt;div class=&quot;idocs-content&quot;&gt;
-  &lt;div class=&quot;container&quot;&gt;
-
-    &lt;!-- Item 1 --&gt;
-    &lt;section id=&quot;item_1&quot;&gt;
-      &lt;h2&gt;Item 1&lt;/h2&gt;
-      &lt;p&gt;...&lt;/p&gt;
-    &lt;/section&gt;
-    &lt;hr class=&quot;divider&quot;&gt;
-
-        &lt;!-- Item 1.1 --&gt;
-        &lt;section id=&quot;item_1_1&quot;&gt;
-          &lt;h2&gt;Item 1.1&lt;/h2&gt;
-          &lt;p&gt;...&lt;/p&gt;
-        &lt;/section&gt;
-        &lt;hr class=&quot;divider&quot;&gt;
-
-        &lt;!-- Item 1.2 --&gt;
-        &lt;section id=&quot;item_1_2&quot;&gt;
-          &lt;h2&gt;Item 1.2&lt;/h2&gt;
-          &lt;p&gt;...&lt;/p&gt;
-        &lt;/section&gt;
-        &lt;hr class=&quot;divider&quot;&gt;
-
-    &lt;!-- Item 2 --&gt;
-    &lt;section id=&quot;item_2&quot;&gt;
-      &lt;h2&gt;Item 2&lt;/h2&gt;
-      &lt;p&gt;...&lt;/p&gt;
-    &lt;/section&gt;
-    &lt;hr class=&quot;divider&quot;&gt;
-
-        &lt;!-- Item 2.1 --&gt;
-        &lt;section id=&quot;item_2_1&quot;&gt;
-          &lt;h2&gt;Item 2.1&lt;/h2&gt;
-          &lt;p&gt;...&lt;/p&gt;
-        &lt;/section&gt;
-        &lt;hr class=&quot;divider&quot;&gt;
-
-        &lt;!-- Item 2.2 --&gt;
-        &lt;section id=&quot;item_2_2&quot;&gt;
-          &lt;h2&gt;Item 2.2&lt;/h2&gt;
-          &lt;p&gt;...&lt;/p&gt;
-        &lt;/section&gt;
-        &lt;hr class=&quot;divider&quot;&gt;
-
-    &lt;!-- Item 3 --&gt;
-    &lt;section id=&quot;item_3&quot;&gt;
-      &lt;h2&gt;Item 3&lt;/h2&gt;
-      &lt;p&gt;...&lt;/p&gt;
-    &lt;/section&gt;
-    &lt;hr class=&quot;divider&quot;&gt;
-
-    &lt;!-- Item 4 --&gt;
-    &lt;section id=&quot;item_4&quot;&gt;
-      &lt;h2&gt;Item 4&lt;/h2&gt;
-      &lt;p&gt;...&lt;/p&gt;
-    &lt;/section&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-                    <h4>Light Sidebar:</h4>
-                    <p>Light background Color & Dark text for light sidebar. See below image and code for more information.</p>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <p><a class="popup-img" href="assets/images/sidebar-light.jpg"><img class="img-fluid border" src="assets/images/sidebar-light.jpg" alt=""></a></p>
-                        </div>
-                    </div>
-
-                    <p>Add the <code>.bg-light</code> class to the main sidebar navigation div element to display a light sidebar.</p>
-                    <pre><code>&lt;!-- Sidebar Navigation
-============================ --&gt;
-&lt;div class=&quot;idocs-navigation bg-light&quot;&gt;
-  ....
-&lt;/div&gt;</code></pre>
-
-                    <h4>Dark Sidebar:</h4>
-                    <p>Dark background Color & Light text for dark sidebar. See below image and code for more information.</p>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <p><a class="popup-img" href="assets/images/sidebar-dark.jpg"><img class="img-fluid border" src="assets/images/sidebar-dark.jpg" alt=""></a></p>
-                        </div>
-                    </div>
-
-                    <p>Add the <code>.bg-dark</code> and <code>.docs-navigation-dark</code> class to the main sidebar navigation div element to display a dark sidebar.</p>
-                    <pre><code>&lt;!-- Sidebar Navigation
-============================ --&gt;
-&lt;div class=&quot;idocs-navigation bg-dark docs-navigation-dark&quot;&gt;
-  ....
-&lt;/div&gt;</code></pre>
                 </section>
 
                 <hr class="divider">
 
-                <!-- Footer
+                <!-- WEB SDK
                 ============================ -->
-                <section id="idocs_footer">
-                    <h2>Footer</h2>
+                <section id="sdk_web">
+                    <h2>Web JS SDK</h2>
                     <p>The list of various footer types & its descriptions are provided below for your reference:</p>
                     <h4>Light Footer</h4>
                     <p>Footer with white background Color & Dark text. See below code for more information.</p>
-                    <pre><code class="html">&lt;!-- Footer
-============================================= --&gt;
-  &lt;footer id=&quot;footer&quot; class=&quot;section bg-light&quot;&gt;
-    &lt;div class=&quot;container&quot;&gt;
-    	..........
-    &lt;/div&gt;
-  &lt;/footer&gt;
-&lt;!-- Footer end --&gt;</code></pre>
-                    <h4>Dark Footer</h4>
-                    <p>Footer with dark background color & Light text. See below code for more information.</p>
-                    <p>Add the <code>.bg-dark</code> and <code>.footer-text-light</code> Class to the <code>footer</code> Tag to display a Dark footer.</p>
-                    <pre><code class="html">&lt;!-- Footer
-============================================= --&gt;
-&lt;footer id=&quot;footer&quot; class=&quot;section bg-dark footer-text-light&quot;&gt;
-    &lt;div class=&quot;container&quot;&gt;
-    	..........
-    &lt;/div&gt;
-&lt;/footer&gt;
-&lt;!-- Footer end --&gt;</code></pre>
+
                 </section>
+
+                <hr class="divider">
+
+                <section id="sdk_java">
+                    <h2>Server Java SDK</h2>
+                    <p>The list of various footer types & its descriptions are provided below for your reference:</p>
+                    <h4>Light Footer</h4>
+                    <p>Footer with white background Color & Dark text. See below code for more information.</p>
+
+                </section>
+
+                <section id="sdk_node">
+                    <h2>Server Node SDK</h2>
+                    <p>The list of various footer types & its descriptions are provided below for your reference:</p>
+                    <h4>Light Footer</h4>
+                    <p>Footer with white background Color & Dark text. See below code for more information.</p>
+
+                </section>
+
+                <hr class="divider">
 
                 <hr class="divider">
 
