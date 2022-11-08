@@ -50,7 +50,7 @@
                 <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
 
                 <!-- Logo -->
-                <a class="logo ml-md-3" href="index.html" title="HalloID"> <img src="assets/images/halloid_logo.png" alt="HalloID" width="120px"/> </a>
+                <a class="logo ml-md-3" href="https://halloid.io" title="HalloID"> <img src="assets/images/halloid_logo.png" alt="HalloID" width="120px"/> </a>
 <!--                <span class="text-5 ml-2">Hallo</span><span style="color: #3956FF" class="text-5">ID</span>-->
                 <span class="text-2 ml-2">v1.0</span>
                 <!-- Logo End -->
@@ -75,16 +75,16 @@
 <!--                                <li><a class="dropdown-item" href="#">Something Else Here</a></li>-->
 <!--                            </ul>-->
 <!--                        </li>-->
-                        <li><a target="_blank" href="https://themeforest.net/user/harnishdesign/portfolio?ref=HarnishDesign">Console</a></li>
-                        <li><a target="_blank" href="https://themeforest.net/user/harnishdesign/#contact?ref=HarnishDesign">Support</a></li>
+<!--                        <li><a target="_blank" href="https://halloid.io">Console</a></li>-->
+                        <li><a  href="#idocs_support">Support</a></li>
                     </ul>
                 </div>
 <!--                TODO add real URL social media-->
                 <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
-                    <li class="social-icons-linkedin"><a data-toggle="tooltip" href="http://www.linkedin.com/harnishdesign/" target="_blank" title="" data-original-title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                    <li class="social-icons-facebook"><a data-toggle="tooltip" href="http://www.instagram.com/harnishdesign/" target="_blank" title="" data-original-title="Instagram"><i class="fab fa-instagram"></i></a></li>
-                    <li class="social-icons-dribbble"><a data-toggle="tooltip" href="http://www.medium.com/harnishdesign/" target="_blank" title="" data-original-title="Medium"><i class="fab fa-medium"></i></a></li>
-                    <li class="social-icons-dribbble"><a data-toggle="tooltip" href="http://www.github.com/harnishdesign/" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+                    <li class="social-icons-linkedin"><a data-toggle="tooltip" href="https://www.linkedin.com/company/halloid/" target="_blank" title="" data-original-title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                    <li class="social-icons-facebook"><a data-toggle="tooltip" href="https://www.instagram.com/halloid.io/" target="_blank" title="" data-original-title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li class="social-icons-dribbble"><a data-toggle="tooltip" href="https://medium.com/halloid" target="_blank" title="" data-original-title="Medium"><i class="fab fa-medium"></i></a></li>
+                    <li class="social-icons-dribbble"><a data-toggle="tooltip" href="https://github.com/Hallo-ID" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
                 </ul>
             </div>
         </nav>
@@ -148,27 +148,27 @@
                     <h2>Welcome to HalloID! This is just the beginning of our very awesome journey <3</h2>
                     <p class="lead">This page contains all official documentation for HalloID. We strongly recommend to
                         go through the different topics and use cases in order to get the max benefit and information
-                        to improve your Authentication process. We are actively updating this docs with the latest
+                        to improve your Authentication process. We are actively updating these docs with the latest
                         releases, if you want to stay tuned,
-                        subscribe to <a href="http://www.harnishdesign.net" target="_blank">our technical blog</a> ;)</p>
+                        subscribe to <a href="https://medium.com/halloid" target="_blank">our technical blog</a> ;)</p>
                     <hr>
                     <div class="row">
                         <div class="col-sm-6 col-lg-4">
                             <ul class="list-unstyled">
                                 <li><strong>Version:</strong> 1.0</li>
                                 <li><strong>Author:</strong>
-                                    <a href="http://www.harnishdesign.net" target="_blank">HalloID Dev Team</a></li>
+                                    <a href="#idocs_support" target="_blank">HalloID Dev Team</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-6 col-lg-4">
                             <ul class="list-unstyled">
                                 <li><strong class="font-weight-700">Created:</strong> 19 October, 2022</li>
-                                <li><strong>Update:</strong> 24 Oct, 2022</li>
+                                <li><strong>Update:</strong> 08 Nov, 2022</li>
                             </ul>
                         </div>
                     </div>
                     <p class="alert alert-info">If you have any questions that are beyond the scope of this documents,
-                        Please feel free to email via<a target="_blank" href="https://themeforest.net/user/harnishdesign/#contact?ref=HarnishDesign">HalloID Support Page</a>.</p>
+                        find our contact information in our <a href="#idocs_support">HalloID Support Page</a>.</p>
                 </section>
 
                 <hr class="divider">
@@ -177,14 +177,20 @@
                 ============================ -->
                 <section id="local_setup">
                     <h2>Local setup</h2>
-                    <p class="lead">Let's deploy HalloID in our local environment in just one single step.</p>
-                    What you already need:
+                    <p class="lead">Deploy a local instance of HalloID in just one single step.</p>
+
+                    <p>HalloID offers a local environment distribution to start integrating your application and testing
+                    our platform. This is also very useful for e2e automated tests.
+                    </p>
+
+                    <p>What you already need:</p>
+
                     <ul>
                         <li>Docker compose</li>
-                        <li>A computer with any biometric device (FaceID, TouchID, YubiKey)</li>
+                        <li>A computer with any biometric authentication device (FaceID, TouchID, YubiKey)</li>
                     </ul>
 
-                    Now, create a file with this content and save it as docker-compose.yml:
+                    <p>Now, create a file with this content and save it as docker-compose.yml:</p>
 
                     <pre><code class="html">
                         version: "3.8"
@@ -198,10 +204,13 @@
 
                           halloid-controller:
                             container_name: halloid-controller
-                            image: halloid/halloid-controller:v0.0.2
+                            image: halloid/halloid-controller:v0.0.3
                             pull_policy: always
                             ports:
                               - "10000:10000"
+                            environment:
+                              - FIDO_AUTHENTICATOR_URL=halloid-authenticator:8081
+                              - ALLOWED_ORIGIN= <-YOUR-CLIENT-ORIGIN>
 
                           halloid-console:
                             container_name: halloid-console
@@ -210,14 +219,21 @@
                             ports:
                               - "3000:80"
                     </code></pre>
-                    Once you have the file ready, only step you need to do is execute the
-                    <code>docker-compose up</code> command. This will deploy a minified version of HalloID in your local
-                    environment, ideal for testing and development. Of course, the version is minified regarding
-                    resources consumption, but you can expect the same features as our production environment.
+                    <p>
+                        Once you have the file ready, only step you need to do is execute the
+                        <code>docker-compose up</code> command. This will deploy a minified version of HalloID in your local
+                        environment, ideal for testing and development. Of course, the version is minified regarding
+                        resources consumption, but you can expect the same features as our cloud environment.
+                    </p>
 
-                    Once 3 the containers are running, let's open the HalloID Console in<a href="http://localhost:3000">
-                    localhost:3000</a>. The first screen you will see will be the Tenant setup, let's start configuring
-                    our new account..
+                    <p>
+                        Once the 3 containers are running, let's open the HalloID Console in<a href="http://localhost:3000">
+                        localhost:3000</a>. The first screen you will see will be the Tenant setup, let's start configuring
+                        our new account..
+                    </p>
+
+                    <p class="alert alert-info">This local version runs with embedded database. Any time you restart
+                    the container, all data will be lost.</p>
 
 
                 </section>
@@ -350,6 +366,19 @@
                         next section, let's explore how to configure a web application to make login via HalloID.
                     </p>
 
+                    <h3  id="public-key-info">HalloID public key</h3>
+                    <p>
+                        To improve security, HalloID perform key pair rotation randomly in the cloud environment. For
+                        on-premise instances, you are responsible for managing key pair rotation.
+                        In both cases, HalloID provides an endpoint in <code>halloid-controller</code> service to get
+                        the current public-key value:
+                    </p>
+
+                    <pre><code class="html">
+                        // For local environment
+                        GET http://localhost:10000/v1/config/publickey
+                    </code></pre>
+
                 </section>
 
                 <hr class="divider">
@@ -367,6 +396,12 @@
                     <p>
                         Once installed, you need to configure your client URL and client ID with the values generated
                         in the HalloID console (see <a href="#create_client">previous steps</a>)
+                    </p>
+
+                    <p class="alert alert-info">
+                        <b>Important: </b>Don't forget to add your web application domain as environment variable in the docker-compose
+                        file <code>ALLOWED_ORIGIN= <-YOUR-CLIENT-ORIGIN></code>,
+                        example: <code>ALLOWED_ORIGIN=http://localhost:8090</code>
                     </p>
 
                     <pre><code class="html">
@@ -403,12 +438,9 @@
                     <h4>The service token</h4>
                     <p>
                         You must generate service tokens using your private key. We strongly recommend to use a backend
-                        service for this operation, HalloID also provides a <a href="#java_sdk">Java SDK</a> to help you
-                        generating and signing the service tokens.
+                        service for this operation, HalloID also provides a <a href="#sdk_java">backend SDK</a> to help
+                        you generating and signing the service tokens. More information in the next sections ;)
                     </p>
-
-                    <p class="alert alert-info"><i class="fa-thin fa-lightbulb"></i> You will find more detailed
-                    information about login in the <a href="#use_cases">use cases</a> section :)</p>
 
                 </section>
 
@@ -548,6 +580,11 @@
                         <li><code>halloid.client.privateKey</code>: Your private Key</li>
                         <li><code>halloid.publicKey</code>: HalloID public key</li>
                     </ul>
+
+                    <p class="alert alert-info">
+                        You can retrieve the halloID public key from GET http://localhost:10000/v1/config/publickey.
+                        More info in the <a href="#public-key-info">HalloID Public Key</a> topic.
+                    </p>
 
                     <p>
                         Once the parameters are configured, just initialize the <code>HalloIDJavaSDK</code> and call
@@ -723,6 +760,8 @@
                         <li><code>200 OK</code>: Returns JWT signed with HalloID private key. You can use HalloID public
                         key to validate the token is from HalloID. The token contains information such username, issuer,
                         sub and client ID.</li>
+                        <li><code>404 NOT FOUND</code>: Returns 404 if the client ID parameter doesn't match
+                            any value in HalloID.</li>
                     </ul>
 
                     <h5>Login</h5>
@@ -746,6 +785,8 @@
                         <li><code>200 OK</code>: Returns JWT signed with HalloID private key. You can use HalloID public
                             key to validate the token is from HalloID. The token contains information such username, issuer,
                             sub and client ID.</li>
+                        <li><code>404 NOT FOUND</code>: Returns 404 if the username or client ID parameter doesn't match
+                            any value in HalloID.</li>
                     </ul>
 
                 </section>
@@ -877,6 +918,25 @@
                                     </div>
                                 </div>
 
+                                <div class="card">
+                                    <div class="card-header" id="heading5">
+                                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse4">HalloID is only available on-premise?</a> </h5>
+                                    </div>
+                                    <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#popularTopics">
+                                        <div class="card-body">HalloID is in constant evolution. Our official release will include our cloud platform version, and other interesting features. Of course our on-premise version will
+                                            be synced with the latest updates too.</div>
+                                    </div>
+                                </div>
+
+<!--                                <div class="card">-->
+<!--                                    <div class="card-header" id="heading6">-->
+<!--                                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse4">Where is the HalloID publicKey</a> </h5>-->
+<!--                                    </div>-->
+<!--                                    <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#popularTopics">-->
+<!--                                        <div class="card-body">You can always find the latest HalloID public key in .</div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
                             </div>
                         </div>
                     </div>
@@ -892,7 +952,7 @@
                     <p>Do you have more questions? Please send us an Email to contact@halloid.io
                     <p> Our team is based on GMT +1 Timezone, so depending on your region our answers can take some time, but never more than 24h.</p>
                     <div class="alert alert-warning mb-4"><span class="badge badge-danger text-uppercase">Note:</span> HalloID still in early stage and the cloud console
-                        is not 100% released for everyone yet. If you need a custom demo we can enable you access, just send an email to contact@halloid.com.
+                        is not 100% released for everyone yet. If you need a custom demo we can enable you access, just send an email to contact@halloid.io.
                     </div>
 
 
@@ -924,10 +984,10 @@
         <div class="container">
 <!--            TODO Update this with right URL-->
             <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
-                <li><a data-toggle="tooltip" href="https://twitter.com/harnishdesign/" target="_blank" title="" data-original-title="Twitter"><i class="fab fa-linkedin"></i></a></li>
-                <li><a data-toggle="tooltip" href="http://www.facebook.com/harnishdesign/" target="_blank" title="" data-original-title="Facebook"><i class="fab fa-instagram"></i></a></li>
-                <li><a data-toggle="tooltip" href="http://www.dribbble.com/harnishdesign/" target="_blank" title="" data-original-title="Dribbble"><i class="fab fa-medium"></i></a></li>
-                <li><a data-toggle="tooltip" href="http://www.github.com/" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+                <li><a data-toggle="tooltip" href="https://www.linkedin.com/company/halloid/" target="_blank" title="" data-original-title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                <li><a data-toggle="tooltip" href="https://www.instagram.com/halloid.io/" target="_blank" title="" data-original-title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a data-toggle="tooltip" href="https://medium.com/halloid" target="_blank" title="" data-original-title="Medium"><i class="fab fa-medium"></i></a></li>
+                <li><a data-toggle="tooltip" href="https://github.com/Hallo-ID" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
             </ul>
 
             <p class="text-center">Copyright &copy; 2022 <a href="">HalloID</a>. All Rights Reserved.</p>
