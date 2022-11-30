@@ -197,14 +197,14 @@
                         services:
                           halloid-authenticator:
                             container_name: halloid-authenticator
-                            image: halloid/halloid-authenticator:v1.0.0
+                            image: halloid/halloid-authenticator:latest
                             pull_policy: always
                             ports:
                               - "8081:8081"
 
                           halloid-controller:
                             container_name: halloid-controller
-                            image: halloid/halloid-controller:v0.0.3
+                            image: halloid/halloid-controller:latest
                             pull_policy: always
                             ports:
                               - "10000:10000"
@@ -214,7 +214,7 @@
 
                           halloid-console:
                             container_name: halloid-console
-                            image: halloid/halloid-console:v0.0.1
+                            image: halloid/halloid-console:latest
                             pull_policy: always
                             ports:
                               - "3000:80"
