@@ -195,29 +195,33 @@
                     <pre><code class="html">
                         version: "3.8"
                         services:
-                          halloid-authenticator:
+                        halloid-authenticator:
                             container_name: halloid-authenticator
-                            image: halloid/halloid-authenticator:v1.0.0
+                            image: halloid/halloid-authenticator:latest
                             pull_policy: always
                             ports:
-                              - "8081:8081"
+                            - "8081:8081"
 
-                          halloid-controller:
+                        halloid-controller:
                             container_name: halloid-controller
-                            image: halloid/halloid-controller:v0.0.3
+                            image: halloid/halloid-controller:latest
                             pull_policy: always
                             ports:
-                              - "10000:10000"
+                            - "10000:10000"
                             environment:
-                              - FIDO_AUTHENTICATOR_URL=halloid-authenticator:8081
-                              - ALLOWED_ORIGIN= <-YOUR-CLIENT-ORIGIN>
+                            - FIDO_AUTHENTICATOR_URL=http://halloid-authenticator:8081
+                            - ALLOWED_ORIGIN=<-YOUR-CLIENT-ORIGIN>
+                            depends_on:
+                            - halloid-authenticator
 
-                          halloid-console:
+                        halloid-console:
                             container_name: halloid-console
-                            image: halloid/halloid-console:v0.0.1
+                            image: halloid/halloid-console:latest
                             pull_policy: always
                             ports:
-                              - "3000:80"
+                            - "3000:80"
+                            depends_on:
+                            - halloid-controller
                     </code></pre>
                     <p>
                         Once you have the file ready, only step you need to do is execute the
@@ -231,7 +235,7 @@
                         localhost:3000</a>. The first screen you will see will be the Tenant setup, let's start configuring
                         our new account..
                     </p>
-
+                    
                     <p class="alert alert-info">This local version runs with embedded database. Any time you restart
                     the container, all data will be lost.</p>
 
@@ -417,10 +421,10 @@
                         // ...Class code
 
                         constructor() {
-                          this.halloClient = new HalloIDWebSDK("CLIENT_URL", "CLIENT_ID");
+                         
+                          this.halloClient = new HalloIDWebSDK("CLIENT_URL", "CLIENT_ID"); // CLIENT_URL=http://localhost:10000
                         }
-                    </code></pre>
-
+                    </code></pre>                    
                     <p>And now only thing you need is start using the register/login methods:</p>
                     <pre><code class="html">
                         myUserRegistrationFunction(username: string) {
