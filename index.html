@@ -163,7 +163,7 @@
                         <div class="col-sm-6 col-lg-4">
                             <ul class="list-unstyled">
                                 <li><strong class="font-weight-700">Created:</strong> 19 October, 2022</li>
-                                <li><strong>Update:</strong> 08 Nov, 2022</li>
+                                <li><strong>Update:</strong> 09 Jan, 2023</li>
                             </ul>
                         </div>
                     </div>
@@ -313,6 +313,11 @@
                     <h2>Security keys</h2>
                     <p>In this section let's talk about how security keys works in HalloID.</p>
 
+                    <p>By default, HalloID offers the option to use no security keys in order to test direclty the
+                    passwordless login with your web client. This option is the best for local development environments,
+                    but never use it in production. If you have selected this choice, you can skip the next section and
+                    go to direclty to <a href="#web_app_login">Web App Login</a></p>
+
                     <h3>Why security keys?</h3>
                     <p>With security keys we make sure the request made by your client comes from you and not from a third
                     party service (such a hacker or phishing software) using the service token. On the other side, you
@@ -419,7 +424,7 @@
                     <p>And now only thing you need is start using the register/login methods:</p>
                     <pre><code class="html">
                         myUserRegistrationFunction(username: string) {
-                            await this.halloClient.registerUser(username, "SERVICE_TOKEN").then(response => {
+                            await this.halloClient.registerUser(username).then(response => {
                                 console.log(response) // Returns the signed JWT token
                               }).catch(reason => {
                                 console.log(reason)
@@ -427,7 +432,7 @@
                         }
 
                         myUserLoginFunction(username: string) {
-                            await this.halloClient.login(username, "SERVICE_TOKEN").then(response => {
+                            await this.halloClient.login(username).then(response => {
                                 console.log(response) // Returns the signed JWT token
                               }).catch(reason => {
                                 console.log(reason)
@@ -437,9 +442,9 @@
 
                     <h4>The service token</h4>
                     <p>
-                        You must generate service tokens using your private key. We strongly recommend to use a backend
-                        service for this operation, HalloID also provides a <a href="#sdk_java">backend SDK</a> to help
-                        you generating and signing the service tokens. More information in the next sections ;)
+                        Optionally, if you selected the option to use a key pair, you can send a Service Token as
+                        parameter with the login/register method. More information in the
+                        <a href="#use_cases">Use Cases section.</a>
                     </p>
 
                 </section>
@@ -752,6 +757,9 @@
                     <h6>Required parameters</h6>
                     <ul>
                         <li><code>USERNAME</code>: Username read from the input text.</li>
+                    </ul>
+                    <h6>Optional parameters</h6>
+                    <ul>
                         <li><code>SERVICE_TOKEN</code>: Generated JWT signed with the tenant private key.</li>
                     </ul>
 
@@ -777,6 +785,9 @@
                     <h6>Required parameters</h6>
                     <ul>
                         <li><code>USERNAME</code>: Username read from the input text.</li>
+                    </ul>
+                    <h6>Optional parameters</h6>
+                    <ul>
                         <li><code>SERVICE_TOKEN</code>: Generated JWT signed with the tenant private key.</li>
                     </ul>
 
@@ -965,8 +976,9 @@
                     <p class="text-4">See what's new added, changed, fixed, improved or updated in the latest versions. </p>
                     <p class="alert alert-info mb-5"> Are you curious about our next updates? Follow us in our social media accounts and stay tuned!</p>
 
-                    <h3 id="v1-0">Version 1.0 <small class="text-muted">(09 Nov, 2022)</small></h3>
+                    <h3 id="v1-0">Version 1.0 <small class="text-muted">(09 Jan, 2023)</small></h3>
                     <ul class="changelog">
+                        <li><span class="badge badge-success">Added</span> Disabling mandatory key pair.</li>
                         <li><span class="badge badge-success">Added</span> First release.</li>
                     </ul>
 
